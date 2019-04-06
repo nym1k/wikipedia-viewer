@@ -40,11 +40,11 @@
 @mixin Button_Primary {
   @include Button;
   background-color: $color-accent;
-  color: $color-light;
+  color: $color-secondary;
 
   &:hover {
-    background-color: $color-light;
-    color: $color-dark;
+    background-color: $color-secondary;
+    color: $color-primary;
   }
 }
 

@@ -1,0 +1,42 @@
+.frm-Form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.frm-Form_Input,
+.frm-Form_Textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 10px 15px;
+  appearance: none;
+  outline: none;
+  border-radius: 3px;
+  // font-family: $font-body;
+  background-color: $color-secondary;
+  color: $color-primary;
+}
+
+.frm-Form_Input {
+  height: 40px;
+  width: 100%;
+
+  @include Breakpoint('custom-600') {
+    width: calc(50% - 10px);
+
+    &:first-child {
+      margin-right: 20px;
+    }
+  }
+
+  &::placeholder {
+    line-height: 20px;
+  }
+
+}
+
+.frm-Form_Submit {
+  @include Button_Primary;
+  display: inline-block;
+  width: 100%;
+}
