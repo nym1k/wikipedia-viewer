@@ -1,0 +1,35 @@
+{
+  "name": "wikipedia-viewer",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "preview": "browser-sync start --server --files '**/*'",
+    "clean": "rimraf css",
+    "compile": "node-sass --output-style=compressed --source-map=true scss/styles.scss css/styles.css",
+    "prefix": "postcss css/styles.css --use=autoprefixer --map=false --output=css/styles.css",
+    "minify": "cleancss --level=1 --source-map --source-map-inline-sources --output css/styles.min.css css/styles.css",
+    "babel": "babel --presets es2015 js/app.js -o js/app.bundle.js",
+    "dev": "npm run compile -- --watch",
+    "build": "npm run clean && npm run compile && npm run prefix && npm run minify && npm run babel"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nym1k/wikipedia-viewer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nym1k/wikipedia-viewer/issues"
+  },
+  "homepage": "https://github.com/nym1k/wikipedia-viewer#readme",
+  "devDependencies": {
+    "autoprefixer": "^9.5.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-es2015": "^6.24.1",
+    "clean-css-cli": "^4.3.0",
+    "node-sass": "^4.11.0",
+    "postcss-cli": "^6.1.2"
+  }
+}
