@@ -1,0 +1,9 @@
+.crd-Wikipedia_Card {
+  background: #e5e6e7;
+  box-shadow: 10px 10px 20px rgba(0,0,0,0.3);
+  margin-bottom: $grid-gap;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}

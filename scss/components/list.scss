@@ -1,0 +1,11 @@
+.lst-List_Items {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: $grid-gap;
+}
+
+.lst-List_Item {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
