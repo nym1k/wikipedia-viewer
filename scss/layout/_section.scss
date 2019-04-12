@@ -5,3 +5,9 @@
 .sec-Section_Inner {
   @include Inner;
 }
+
+.sec-Section_Body {
+  @include Spacer_Body;
+  background-color: $color-secondary;
+  border-radius: 3px;
+}

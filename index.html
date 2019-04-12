@@ -11,41 +11,51 @@
   </head>
   <body>
     <main>
-
-      <section class="sec-Section">
+      <!-- Form -->
+      <section class="sec-Section sec-Section-full">
         <div class="sec-Section_Inner">
           <div class="sec-Section_Body">
 
-            <div class="wik-Wikipedia">
-              <div class="wik-Wikipedia_Form">
-                <form action="#" class="frm-Form">
-                  <input type="text" class="frm-Form_Input" data-search-input>
-                  <input type="submit" class="frm-Form_Submit" data-search-button>
-                </form>
-              </div>
-              <div class="wik-Wikipedia_Options">
-                <a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank" class="random">
+            <div class="sec-Section_Form">
+              <form action="#" class="frm-Form">
+                <input type="text" class="frm-Form_Input" placeholder="Search Wikipedia" data-search-input>
+                <input type="submit" class="frm-Form_Submit" data-search-button>
+              </form>
+            </div>
+
+            <div class="sec-Section_Columns">
+              <div class="sec-Section_Column">
+                <a class="sec-Section_Button sec-Section_Button-secondary" href="https://en.wikipedia.org/wiki/Special:Random" target="_blank" class="random">
                   I'm Feeling Lucky
                 </a>
-                <a href="#" class="clear">
-                  Clear Results
-                </a>
               </div>
-              <div class="wik-Wikipedia_Results">
-                <h2 class="wik-Wikipedia_Title" data-search-results-title></h2>
-                <ul class="wik-Wikipedia_Items" data-search-results-container>
-                  <li class="wik-Wikipedia_Item">
-
-                  </li>
-                </ul>
+              <div class="sec-Section_Column">
+                <button type="button" class="sec-Section_Button sec-Section_Button-secondary">
+                  Clear Results
+                </button>
               </div>
             </div>
 
           </div>
         </div>
       </section>
+      <!-- Form End -->
 
+      <!-- Results -->
+      <section class="sec-Section utl-Hidden" data-search-results>
+        <div class="sec-Section_Inner">
+          <div class="sec-Section_Body">
+            <h2 class="sec-Section_Heading" data-search-results-title></h2>
+
+            <ul class="lst-List_Items" data-search-results-container></ul>
+
+          </div>
+        </div>
+      </section>
+      <!-- Results End -->
     </main>
+
+    <!-- Scripts -->
     <script src="js/app.js"></script>
   </body>
 </html>

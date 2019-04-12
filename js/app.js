@@ -3,6 +3,7 @@
   const els = {
     searchInput: document.querySelector('[data-search-input]'),
     searchButton: document.querySelector('[data-search-button]'),
+    searchResults: document.querySelector('[data-search-results]'),
     searchResultsTitle: document.querySelector('[data-search-results-title]'),
     searchResultsContainer: document.querySelector('[data-search-results-container]')
   }
@@ -71,12 +72,11 @@
       // }
 
       // For each result, output html with data
-      console.log(searchData);
       let searchDataHTML = []
 
       for (i = 0; i < searchData[1].length; i++) {
         let searchDataItem = ""
-          + "<li class='wik-Wikipedia_Item'>"
+          + "<li class='lst-List_Item'>"
           + "<div class='crd-Wikipedia_Card'>"
           + "<a href='" + searchData[3][i] + "' target='_blank' rel='noreferrer'><h3>" + searchData[1][i] + "</h3></a>"
           + "<p>" + searchData[2][i] + "</p>"
@@ -85,12 +85,16 @@
         searchDataHTML += searchDataItem
       }
 
+      console.log(searchDataHTML);
+
+      els.searchResults.classList.remove('utl-Hidden')
       els.searchResultsTitle.innerHTML = `Showing results for: ${searchData[0]}`
       els.searchResultsContainer.innerHTML = searchDataHTML
     },
     clearResults: function() {
       // clear html of results container
       // $('.resultsBox').html("");
+      els.searchResults.classList.add('utl-Hidden')
       els.searchResultsTitle.innerHTML = ''
       els.searchResultsContainer.innerHTML = ''
     }
