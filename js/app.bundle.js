@@ -19,7 +19,7 @@
       // on click of search, run search function
       els.searchButton.addEventListener('click', function (e) {
         e.preventDefault();
-        console.log(e.target);
+        App.wikiSearch();
       });
 
       // On click of clear, clear searchbox
@@ -27,11 +27,28 @@
     },
     getWikiURL: function getWikiURL() {
       // get value of search input
-      // const searchTerm = $('.searchTerm').val();
+      var searchTerm = els.searchInput.value;
+
       // return url for wikipedia + searchterm
-      // return "https://en.wikipedia.org/w/api.php?action=opensearch&search=" + searchTerm;
+      return "https://en.wikipedia.org/w/api.php?action=opensearch&search=" + searchTerm;
     },
     wikiSearch: function wikiSearch() {
+      // Using the cors-anywhere api to bypass Access-Control-Allow-Origin issue
+      var proxyurl = "https://cors-anywhere.herokuapp.com/";
+      var url = App.getWikiURL();
+
+      var request = new Request(proxyurl + url, {
+        method: 'GET',
+        headers: new Headers({})
+      });
+
+      fetch(proxyurl + url).then(function (response) {
+        return response.json();
+      }).then(function (contents) {
+        return App.displayResults(contents);
+      }).catch(function () {
+        return console.log("Can’t access " + url + " response. Blocked by browser?");
+      });
       // Ajax call to wikipedia
       // $.ajax({
       //   url: App.getWikiURL(),
@@ -53,6 +70,11 @@
       // }
 
       // For each result, output html with data
+
+      console.log(searchData);
+
+      els.searchResults.innerHtml = searchData;
+
       // for (i = 0; i < searchData[1].length; i++) {
       //   var content = "" +
       //     "<div class='result'>" +
@@ -65,6 +87,7 @@
     clearResults: function clearResults() {
       // clear html of results container
       // $('.resultsBox').html("");
+      els.searchResults.innerHtml = '';
     }
   };
 
